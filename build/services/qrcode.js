@@ -82,7 +82,7 @@ let QRCodeService = class QRCodeService {
                     'Accept': 'application/json, text/plain, */*',
                     'Accept-Language': 'zh-cn',
                     'Referer': 'https://plogin.m.jd.com/login/login?appid=300&returnurl=https://wq.jd.com/passport/LoginRedirect?state=' + timeStamp + '&returnurl=https://home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&/myJd/home.action&source=wq_passport',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',
+                    'User-Agent': 'Mozilla/5.0 (Linux; U; Android 11; zh-cn; M2007J17C Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.2.22',
                     'Host': 'plogin.m.jd.com'
                 }
             });
@@ -114,7 +114,7 @@ let QRCodeService = class QRCodeService {
                     'Accept': 'application/json, text/plain, */*',
                     'Cookie': this.cookies,
                     'Referer': 'https://plogin.m.jd.com/login/login?appid=300&returnurl=https://wqlogin2.jd.com/passport/LoginRedirect?state=' + timeStamp + '&returnurl=//home.m.jd.com/myJd/newhome.action?sceneval=2&ufc=&/myJd/home.action&source=wq_passport',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',
+                    'User-Agent': 'Mozilla/5.0 (Linux; U; Android 11; zh-cn; M2007J17C Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.2.22',
                     'Host': 'plogin.m.jd.com',
                 }
             });
@@ -150,7 +150,7 @@ let QRCodeService = class QRCodeService {
                     'Connection': 'Keep-Alive',
                     'Content-Type': 'application/x-www-form-urlencoded; Charset=UTF-8',
                     'Accept': 'application/json, text/plain, */*',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',
+                    'User-Agent': 'Mozilla/5.0 (Linux; U; Android 11; zh-cn; M2007J17C Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/79.0.3945.147 Mobile Safari/537.36 XiaoMi/MiuiBrowser/14.2.22',
                 }
             });
             return response;
