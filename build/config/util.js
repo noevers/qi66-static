@@ -46,7 +46,7 @@ function getLastModifyFilePath(dir) {
     return filePath;
 }
 exports.getLastModifyFilePath = getLastModifyFilePath;
-function createPassword(min, max) {
+function createRandomString(min, max) {
     const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const english = [
         'a',
