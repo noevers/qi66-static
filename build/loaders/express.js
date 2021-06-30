@@ -9,6 +9,8 @@ const api_1 = __importDefault(require("../api"));
 const config_1 = __importDefault(require("../config"));
 const express_jwt_1 = __importDefault(require("express-jwt"));
 const fs_1 = __importDefault(require("fs"));
+const util_1 = require("../config/util");
+
 exports.default = ({ app }) => {
     app.enable('trust proxy');
     app.use(cors_1.default());
@@ -18,16 +20,16 @@ exports.default = ({ app }) => {
         path: ['/api/login', '/api/qrcode', '/api/status'],
     }));
     app.use((req, res, next) => {
-        if (req.url && (req.url.includes('/api/login') || req.url.includes('/api/qrcode') || req.url.includes('/api/status'))) {
-            return next();
-        }
         const data = fs_1.default.readFileSync(config_1.default.authConfigFile, 'utf8');
-        const authHeader = req.headers.authorization;
+        const headerToken = util_1.getToken(req);
         if (data) {
             const { token } = JSON.parse(data);
-            if (token && authHeader.includes(token)) {
+            if (token && headerToken === token) {
                 return next();
             }
+        }
+        if (!headerToken && req.url && (req.path('/api/login') || req.path('/api/qrcode') || req.path('/api/status'))) {
+            return next();
         }
         const err = new Error('UnauthorizedError');
         err['status'] = 401;
