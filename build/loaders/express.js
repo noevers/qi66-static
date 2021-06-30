@@ -28,7 +28,7 @@ exports.default = ({ app }) => {
                 return next();
             }
         }
-        if (!headerToken && req.url && (req.path('/api/login') || req.path('/api/qrcode') || req.path('/api/status'))) {
+        if (!headerToken && req.url && (req.path  === '/api/login' || req.path  === '/api/qrcode' || req.path  === '/api/status')) {
             return next();
         }
         const err = new Error('UnauthorizedError');
