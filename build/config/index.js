@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const path_1 = __importDefault(require("path"));
+const util_1 = require("./util");
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const envFound = dotenv_1.default.config();
 const rootPath = path_1.default.resolve(__dirname, '../../');
@@ -33,7 +34,7 @@ if (configFound.error) {
 exports.default = {
     port: parseInt(process.env.PORT, 10),
     cronPort: parseInt(process.env.CRON_PORT, 10),
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || util_1.createRandomString(16, 32),
     logs: {
         level: process.env.LOG_LEVEL || 'silly',
     },
