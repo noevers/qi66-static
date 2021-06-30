@@ -46,7 +46,7 @@ function getLastModifyFilePath(dir) {
     return filePath;
 }
 exports.getLastModifyFilePath = getLastModifyFilePath;
-function createPassword(min, max) {
+function createRandomString(min, max) {
     const num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const english = [
         'a',
@@ -124,5 +124,13 @@ function createPassword(min, max) {
     }
     return newArr.join('');
 }
-exports.createPassword = createPassword;
+exports.createRandomString = createRandomString;
+function getToken(req) {
+    const { authorization } = req.headers;
+    if (authorization && authorization.split(' ')[0] === 'Bearer') {
+        return authorization.split(' ')[1];
+    }
+    return '';
+}
+exports.getToken = getToken;
 //# sourceMappingURL=util.js.map
