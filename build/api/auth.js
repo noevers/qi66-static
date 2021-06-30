@@ -43,7 +43,7 @@ exports.default = (app) => {
                 if (username && password) {
                     if (authInfo.username === 'admin' &&
                         authInfo.password === 'adminadmin') {
-                        const newPassword = util_1.createPassword(16, 22);
+                        const newPassword = util_1.createRandomString(16, 22);
                         fs.writeFileSync(config_1.default.authConfigFile, JSON.stringify({
                             username: authInfo.username,
                             password: newPassword,
@@ -55,7 +55,11 @@ exports.default = (app) => {
                     }
                     if (username == authInfo.username &&
                         password == authInfo.password) {
-                        let token = jsonwebtoken_1.default.sign({ username, password }, config_1.default.secret, { expiresIn: 60 * 60 * 24 * 7, algorithm: 'HS384' });
+                        const data = util_1.createRandomString(50, 100);
+                        let token = jsonwebtoken_1.default.sign({ data }, config_1.default.secret, {
+                            expiresIn: 60 * 60 * 24 * 3,
+                            algorithm: 'HS384',
+                        });
                         fs.writeFileSync(config_1.default.authConfigFile, JSON.stringify({
                             username: authInfo.username,
                             password: authInfo.password,
